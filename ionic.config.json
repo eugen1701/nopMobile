@@ -1,0 +1,7 @@
+{
+  "name": "nopApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
