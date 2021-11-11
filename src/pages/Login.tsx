@@ -55,6 +55,12 @@ const Login: React.FC = () => {
                   history.push("/home");
               }
            }
+        ).catch((error) => {
+                console.log(error.response);
+                setMessage("The login credentials are incorrect");
+                setIserror(true);
+                return;
+            }
         )
 
     };
@@ -119,7 +125,7 @@ const Login: React.FC = () => {
                         <IonCol>
                             <IonButton expand="block"  onClick={handleLogin}>Login</IonButton>
                             <p style={{ fontSize: "medium" }}>
-                                Don't have an account? <a href="#">Sign up!</a>
+                                Don't have an account? <a href="/register">Sign up!</a>
                             </p>
 
                         </IonCol>

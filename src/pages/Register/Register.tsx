@@ -32,6 +32,7 @@ const Register: React.FC = () => {
     const [password, setPassword] = useState<string>("");
     const [passwordConfirmed, setPasswordConfirmed] = useState<string>("");
     const [iserror, setIserror] = useState<boolean>(false);
+    const [isSuccessful, setIssuccessful] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
 
     const handleRegister = () => {
@@ -52,10 +53,36 @@ const Register: React.FC = () => {
 
         axios.post('http://localhost:7768/api/Authentication/Register/User', loginData)
             .then(function (response) {
-                console.log(response);
+
+                console.log(response.data.message);
+                if (response.data.status == "Error") {
+                    setMessage(response.data.message);
+                    setIserror(true);
+                    return;
+                }
+
+                setMessage("Successfully signed up!");
+                setIssuccessful(true);
+                history.push("/login");
             })
             .catch(function (error) {
-                console.log(error);
+                let x : string;
+                x = "";
+
+                if (error.response.data.status == "Error") {
+                    setMessage(error.response.data.message);
+                    setIserror(true);
+                    return;
+                }
+
+                var elements = error.response.data.errors;
+                Object.keys(elements).forEach(function(element) {
+                    x = x + element + ': ' + elements[element] + '.  ';
+                });
+
+                setMessage(x);
+                setIserror(true);
+                return;
             });
 
     };
@@ -155,6 +182,17 @@ const Register: React.FC = () => {
                                 isOpen={iserror}
                                 onDidDismiss={() => setIserror(false)}
                                 header={"Error!"}
+                                message={message}
+                                buttons={["Dismiss"]}
+                            />
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <IonAlert
+                                isOpen={isSuccessful}
+                                onDidDismiss={() => setIssuccessful(false)}
+                                header={"Success!"}
                                 message={message}
                                 buttons={["Dismiss"]}
                             />
