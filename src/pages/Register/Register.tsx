@@ -23,6 +23,7 @@ import React, {useState} from "react";
 import './Register.css';
 
 import {pizza} from "ionicons/icons";
+import axios from "axios";
 
 const Register: React.FC = () => {
     const history = useHistory();
@@ -44,10 +45,19 @@ const Register: React.FC = () => {
         // Email format error/name/password checked in backend?
 
         const loginData = {
-            "name": name,
-            "email": email,
-            "password": password
+            "username": name,
+            "password": password,
+            "email": email
         }
+
+        axios.post('http://localhost:7768/api/Authentication/Register/User', loginData)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
     };
 
     return (
@@ -132,7 +142,7 @@ const Register: React.FC = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
-
+                    <br/>
                     <IonRow>
                         <IonCol>
                             <IonButton expand="block"  onClick={handleRegister}>Sign up</IonButton>
