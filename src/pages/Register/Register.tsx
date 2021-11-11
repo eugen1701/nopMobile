@@ -50,7 +50,7 @@ const Register: React.FC = () => {
             "email": email
         }
 
-        axios.post('http://localhost:7768/api/Authentication/Register', loginData)
+        axios.post('http://localhost:7768/api/Authentication/Register/User', loginData)
             .then(function (response) {
                 console.log(response);
             })
