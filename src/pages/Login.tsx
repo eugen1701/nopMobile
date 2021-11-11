@@ -13,8 +13,8 @@ function validateEmail(email: string) {
 }
 const Login: React.FC = () => {
     const history = useHistory();
-    const [email, setEmail] = useState<string>("test@test.com");
-    const [password, setPassword] = useState<string>("testing321");
+    const [email, setEmail] = useState<string>("user@example.com");
+    const [password, setPassword] = useState<string>("String123!");
     const [iserror, setIserror] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
     const handleLogin = () => {
@@ -40,10 +40,23 @@ const Login: React.FC = () => {
             "password": password
         }
 
-        const api = axios.create({
-            baseURL: `https://reqres.in/api`
-        })
-       // TODO ADD ACTUAL CALL AND HANDLING LOGIC
+        const api = axios.post(
+            "http://localhost:7768/api/Authentication/Login",loginData
+        ).then((response)=>{
+              if(!response.status){
+                  console.log("Failure");
+              }
+              else{
+                  console.log("Succes");
+                  localStorage.setItem("token",response.data.token)
+                  localStorage.setItem("id",response.data.userId)
+                  localStorage.setItem("role", response.data.role)
+                  localStorage.setItem("username",response.data.userName)
+                  history.push("/home");
+              }
+           }
+        )
+
     };
 
     return (
