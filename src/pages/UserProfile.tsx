@@ -7,7 +7,7 @@ import {
     IonCard,
     IonLabel,
     IonFab,
-    IonFabButton, IonGrid, IonCol, IonRow, IonInput, IonItem, IonButtons,IonBackButton
+    IonFabButton, IonGrid, IonCol, IonRow, IonInput, IonItem, IonButtons, IonBackButton, IonButton
 } from '@ionic/react';
 
 import './Home.css';
@@ -21,7 +21,8 @@ const UserProfile: React.FC = () => {
     const token = localStorage.token
     const id = localStorage.id
     const strringy = "http://localhost:7768/api/User/Details/" + id;
-    const [addressNumber, setaddressNumber] = useState<string>();
+    const edit_user_url="http://localhost:7768/api/User/Edit/"
+    const [addressNumber, setAddressNumber] = useState<string>();
     const [city, setCity] = useState<string>();
     const [country, setCountry] = useState<string>();
     const [email, setEmail] = useState<string>();
@@ -47,9 +48,49 @@ const UserProfile: React.FC = () => {
             setCountry(response.data.country);
             setCity(response.data.city);
             setStreet(response.data.street);
-            setaddressNumber(response.data.adressNumber);
+            setAddressNumber(response.data.adressNumber);
         })
-    }, []);
+    }, [strringy, token]);
+
+    const editUser = () => {
+        const req_body={
+            "id": id,
+            "userName": username,
+            "email": email,
+            "firstName": firstName,
+            "lastName": lastName,
+            "country": country,
+            "city": city,
+            "street": street,
+            "addressNumber": addressNumber,
+            "phoneNumber": phone,
+            "role": role
+        }
+        if(req_body.addressNumber===undefined){
+            req_body.addressNumber=""
+        }
+        console.log(req_body)
+        axios.put(edit_user_url,{
+                "id": id,
+                "userName": username,
+                "email": email,
+                "firstName": firstName,
+                "lastName": lastName,
+                "country": country,
+                "city": city,
+                "street": street,
+                "addressNumber": addressNumber,
+                "phoneNumber": phone,
+                "role": role
+            },{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+            }
+        ).then((response)=>{
+            console.log(response)
+        })
+    }
 
     return (
         <IonPage>
@@ -136,6 +177,7 @@ const UserProfile: React.FC = () => {
                                     type="text"
                                     value={role}
                                     onIonChange={(e) => setRole(e.detail.value!)}
+                                    disabled={true}
                                 >
                                 </IonInput>
                             </IonItem>
@@ -187,13 +229,20 @@ const UserProfile: React.FC = () => {
                                 <IonInput
                                     type="text"
                                     value={addressNumber}
-                                    onIonChange={(e) => setaddressNumber(e.detail.value!)}
+                                    onIonChange={(e) => setAddressNumber(e.detail.value!)}
                                 >
                                 </IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <IonButton  onClick={editUser} >Modify Profile</IonButton>
+                        </IonCol>
+                    </IonRow>
                 </IonGrid>
+
+
             </IonContent>
         </IonPage>
     );
