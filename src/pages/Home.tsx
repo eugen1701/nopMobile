@@ -12,7 +12,7 @@ import {
 
 import './Home.css';
 import {useHistory} from "react-router-dom";
-import {personCircle} from "ionicons/icons";
+import {fastFoodOutline, personCircle} from "ionicons/icons";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -24,6 +24,9 @@ const Home: React.FC = () => {
     const id = localStorage.id
     const user_profile_load = () =>{
         history.push('/user_profile')
+    }
+    const all_kitchens_load = () =>{
+        history.push('/all_kitchens')
     }
     return (
         <IonPage>
@@ -42,6 +45,17 @@ const Home: React.FC = () => {
                                 icon={personCircle} onClick={user_profile_load}
                             />
                             <IonCardTitle>{username}</IonCardTitle>
+                        </IonCard>
+                    </IonCol>
+                </IonRow>
+                <IonRow>
+                    <IonCol>
+                        <IonCard>
+                            <IonIcon
+                                style={{fontSize: "70px", color: "#DEA54B"}}
+                                icon={fastFoodOutline} onClick={all_kitchens_load}
+                            />
+                            <IonCardTitle>All Kitchens</IonCardTitle>
                         </IonCard>
                     </IonCol>
                 </IonRow>

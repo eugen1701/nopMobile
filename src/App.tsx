@@ -24,6 +24,9 @@ import './theme/variables.css';
 import Login from "./pages/Login";
 import Register from "./pages/Register/Register";
 import UserProfile from "./pages/UserProfile";
+import AllKitchens from "./pages/AllKitchens";
+import {KitchenDetail} from "./pages/KitchenDetail";
+
 
 const App: React.FC = () => (
   <IonApp>
@@ -38,9 +41,13 @@ const App: React.FC = () => (
         <Route exact path="/user_profile">
           <UserProfile />
         </Route>
+        <Route exact path="/all_kitchens">
+          <AllKitchens />
+        </Route>
         <Route exact path="/register">
           <Register />
         </Route>
+        <Route exact path="/kitchen_detail/:id" component={KitchenDetail}/>
         <Route exact path="/">
           <Redirect to="/login" />
         </Route>
