@@ -1,10 +1,19 @@
+@font-face {
+  font-family: 'Imported Font';
+  font-style: normal;
+  font-weight: normal;
+  src: url('Nunito-Light.ttf');
+}
+
 :root {
-  --ion-color-primary: #DEA54B;
+  --ion-font-family: 'Imported Font';
+
+  --ion-color-primary: #18BC8A;
   --ion-color-primary-rgb: 222,165,75;
   --ion-color-primary-contrast: #000000;
   --ion-color-primary-contrast-rgb: 0,0,0;
-  --ion-color-primary-shade: #c39142;
-  --ion-color-primary-tint: #e1ae5d;
+  --ion-color-primary-shade: #18BC8A;
+  --ion-color-primary-tint: #18BC8A;
 
   --ion-color-secondary: #5398BE;
   --ion-color-secondary-rgb: 83,152,190;
@@ -41,7 +50,7 @@
   --ion-color-danger-shade: #cf3c4f;
   --ion-color-danger-tint: #ed576b;
 
-  --ion-color-dark: #222428;
+  --ion-color-dark: #101010;
   --ion-color-dark-rgb: 34,36,40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255,255,255;

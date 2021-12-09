@@ -52,12 +52,12 @@ export function KitchenDetail(props: RouteComponentProps<{ id?: string }>) {
                     <IonCardSubtitle>{openhour}-{closehour}</IonCardSubtitle>
                     <IonCardContent>{additionalInfo}</IonCardContent>
                     <IonRow className="ion-text-center">
-                        <IonIcon icon={callOutline}  style={{fontSize: "30px", color: "#DEA54B"}}/>
-                        <IonText style={{fontSize: "20px", color: "#DEA54B", marginLeft:"20px"}}>{phone}</IonText>
+                        <IonIcon icon={callOutline}  style={{fontSize: "30px", color: "#18BC8A"}}/>
+                        <IonText style={{fontSize: "20px", color: "#18BC8A", marginLeft:"20px"}}>{phone}</IonText>
                     </IonRow>
                     <IonRow className="ion-text-center">
-                        <IonIcon icon={mailOutline}  style={{fontSize: "30px", color: "#DEA54B"}}/>
-                        <IonText style={{fontSize: "20px", color: "#DEA54B", marginLeft:"20px"}}>{email}</IonText>
+                        <IonIcon icon={mailOutline}  style={{fontSize: "30px", color: "#18BC8A"}}/>
+                        <IonText style={{fontSize: "20px", color: "#18BC8A", marginLeft:"20px"}}>{email}</IonText>
                     </IonRow>
                 </IonCard>
             </IonContent>

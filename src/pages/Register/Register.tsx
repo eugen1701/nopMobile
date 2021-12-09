@@ -99,7 +99,7 @@ const Register: React.FC = () => {
                     <IonRow>
                         <IonCol>
                             <IonIcon
-                                style={{ fontSize: "40px", color:"#DEA54B" }}
+                                style={{ fontSize: "40px", color:"#18BC8A" }}
                                 icon={pizza}
                             />
                         </IonCol>

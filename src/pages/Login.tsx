@@ -89,7 +89,7 @@ const Login: React.FC = () => {
                     <IonRow>
                         <IonCol>
                             <IonIcon
-                                style={{ fontSize: "70px", color:"#DEA54B" }}
+                                style={{ fontSize: "70px", color:"#18BC8A" }}
                                 icon={personCircle}
                             />
                         </IonCol>

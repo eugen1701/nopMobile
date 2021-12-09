@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                         <IonCard>
 
                                 <IonIcon
-                                style={{fontSize: "70px", color: "#DEA54B"}}
+                                style={{fontSize: "70px", color: "#18BC8A"}}
                                 icon={personCircle} onClick={user_profile_load}
                             />
                             <IonCardTitle>{username}</IonCardTitle>
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
                     <IonCol>
                         <IonCard>
                             <IonIcon
-                                style={{fontSize: "70px", color: "#DEA54B"}}
+                                style={{fontSize: "70px", color: "#18BC8A"}}
                                 icon={fastFoodOutline} onClick={all_kitchens_load}
                             />
                             <IonCardTitle>All Kitchens</IonCardTitle>
