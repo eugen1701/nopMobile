@@ -69,7 +69,6 @@ const UserProfile: React.FC = () => {
         if(req_body.addressNumber===undefined){
             req_body.addressNumber=""
         }
-        console.log(req_body)
         axios.put(edit_user_url,{
                 "id": id,
                 "userName": username,
@@ -88,6 +87,9 @@ const UserProfile: React.FC = () => {
             }
             }
         ).then((response)=>{
+            if (typeof username === "string") {
+                localStorage.setItem("username", username)
+            }
             console.log(response)
         })
     }
