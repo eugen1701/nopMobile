@@ -25,6 +25,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register/Register";
 import UserProfile from "./pages/UserProfile";
 import AllKitchens from "./pages/AllKitchens";
+import Subscription from "./pages/Subscription";
 import {KitchenDetail} from "./pages/KitchenDetail";
 
 
@@ -43,6 +44,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/all_kitchens">
           <AllKitchens />
+        </Route>
+        <Route exact path="/subscriptions">
+          <Subscription />
         </Route>
         <Route exact path="/register">
           <Register />

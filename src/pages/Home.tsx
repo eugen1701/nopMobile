@@ -12,7 +12,7 @@ import {
 
 import './Home.css';
 import {useHistory} from "react-router-dom";
-import {fastFoodOutline, personCircle} from "ionicons/icons";
+import {checkmarkCircleOutline, fastFoodOutline, personCircle} from "ionicons/icons";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -28,6 +28,9 @@ const Home: React.FC = () => {
     const all_kitchens_load = () =>{
         history.push('/all_kitchens')
     }
+    const subscriptions_load = () =>{
+        history.push('/subscriptions')
+    }
     return (
         <IonPage>
             <IonHeader>
@@ -41,10 +44,11 @@ const Home: React.FC = () => {
                         <IonCard>
 
                                 <IonIcon
-                                style={{fontSize: "70px", color: "#18BC8A"}}
+                                style={{fontSize: "70px", color: "#18BC8A", height: "120px"}}
                                 icon={personCircle} onClick={user_profile_load}
                             />
                             <IonCardTitle>{username}</IonCardTitle>
+                            <br />
                         </IonCard>
                     </IonCol>
                 </IonRow>
@@ -52,10 +56,23 @@ const Home: React.FC = () => {
                     <IonCol>
                         <IonCard>
                             <IonIcon
-                                style={{fontSize: "70px", color: "#18BC8A"}}
+                                style={{fontSize: "70px", color: "#18BC8A", height: "120px"}}
                                 icon={fastFoodOutline} onClick={all_kitchens_load}
                             />
                             <IonCardTitle>All Kitchens</IonCardTitle>
+                            <br />
+                        </IonCard>
+                    </IonCol>
+                </IonRow>
+                <IonRow>
+                    <IonCol>
+                        <IonCard>
+                            <IonIcon
+                                style={{fontSize: "70px", color: "#18BC8A", height: "120px"}}
+                                icon={checkmarkCircleOutline} onClick={subscriptions_load}
+                            />
+                            <IonCardTitle>My subscriptions</IonCardTitle>
+                            <br />
                         </IonCard>
                     </IonCol>
                 </IonRow>
