@@ -50,6 +50,8 @@ const Subscription: React.FC = () => {
                     <IonCardTitle>{obj.offerDescription}</IonCardTitle>
                     Untill:
                     <IonCardSubtitle>{obj.endDate}</IonCardSubtitle>
+                    Price:
+                    <IonCardSubtitle>{obj.price}</IonCardSubtitle>
                 </IonCard>}) }
             </IonContent>
         </IonPage>
