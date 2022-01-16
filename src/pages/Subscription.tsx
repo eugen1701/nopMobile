@@ -45,7 +45,9 @@ const Subscription: React.FC = () => {
             </IonHeader>
             <IonContent fullscreen className="ion-text-center">
                 { subscriptions.map(obj => {return <IonCard>
-                    <IonCardTitle>{obj.description}</IonCardTitle>
+                    <IonCardTitle>{obj.kitchenName}</IonCardTitle>
+                    Offer description:
+                    <IonCardTitle>{obj.offerDescription}</IonCardTitle>
                     Untill:
                     <IonCardSubtitle>{obj.endDate}</IonCardSubtitle>
                     Price per day:
